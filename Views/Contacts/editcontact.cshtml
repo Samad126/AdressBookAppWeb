@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Edit Contact";
+}
+
+<div class="container-fluid px-4">
+    <form id="addContactForm" enctype="multipart/form-data" class="mt-4">
+        <div class="mb-3">
+            <label for="contactImage" class="form-label">Upload Contact Image</label>
+            <input type="file" class="form-control" id="contactImage" accept="image/*" onchange="previewImage(event)">
+        </div>
+        <div class="mb-3">
+            <img id="imagePreview" src="" alt="Image Preview" class="img-thumbnail"
+                 style="display: none; max-width: 200px; margin-top: 10px;">
+        </div>
+        <div class="mb-3">
+            <label for="contactName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="contactName" placeholder="Enter contact name" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactPhone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="contactPhone" placeholder="Enter phone number" required>
+        </div>
+        <div class="mb-3">
+            <label for="contactAddress" class="form-label">Address</label>
+            <textarea class="form-control" id="contactAddress" rows="3" placeholder="Enter address"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+    </form>
+</div>

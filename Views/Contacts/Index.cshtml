@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewData["Title"] = "contacts";
+}
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Contacts</h2>
+    <div class="row align-items-start justify-content-between mb-4">
+        <div class="col-lg-6 col-md-8 col-sm-12 mb-3 d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContactModal">Add New Contact</button>
+            <button class="btn btn-secondary">Import Contacts</button>
+            <button class="btn btn-secondary">Export Contacts</button>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-12 mb-3 text-end">
+            <button class="btn btn-primary w-100" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-controls="searchOffcanvas">
+                Search Contacts
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <!-- Contact Card 1 -->
+        <div class="col-sm-6 col-md-4">
+            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                <!-- Image Section -->
+                <img src="https://picsum.photos/id/237/80/80" class="rounded"
+                     style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                <!-- Info and Buttons Section -->
+                <div class="ms-3 w-100">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h6 class="mb-0">John Doe</h6>
+                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
+                    </div>
+                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 123-456-7890</p>
+                    <p class="mb-1" style="font-size: 0.85rem;">Email: john@example.com</p>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex gap-1 mt-2 flex-wrap">
+                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
+                        <a class="btn btn-warning btn-sm">Update</a>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Card 2 -->
+        <div class="col-sm-6 col-md-4">
+            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                <!-- Image Section -->
+                <img src="https://picsum.photos/id/238/80/80" class="rounded"
+                     style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                <!-- Info and Buttons Section -->
+                <div class="ms-3 w-100">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h6 class="mb-0">Jane Smith</h6>
+                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
+                    </div>
+                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
+                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex gap-1 mt-2 flex-wrap">
+                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
+                        <a class="btn btn-warning btn-sm">Update</a>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addContactModalLabel">Add New Contact</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Select how you want to add a new contact (if user has registered on website you can add using user key):</p>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="AddContact" >Add Manually</a>
+
+                    <a class="btn btn-secondary" asp-controller="Contacts" asp-action="SearchUser" >Add Using User Key</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search & Filter Contacts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="searchForm" method="post">
+            <div class="mb-3">
+                <label for="fullnameQuery" class="form-label">Search by Fullname</label>
+                <input type="text" class="form-control mb-2" id="fullnameQuery" name="fullnameQuery" placeholder="Enter fullname...">
+            </div>
+
+            <div class="mb-3">
+                <label for="emailQuery" class="form-label">Search by Email</label>
+                <input type="email" class="form-control mb-2" id="emailQuery" name="emailQuery" placeholder="Enter email...">
+            </div>
+
+            <div class="mb-3">
+                <label for="phoneQuery" class="form-label">Search by Phone Number</label>
+                <input type="tel" class="form-control mb-2" id="phoneQuery" name="phoneQuery" placeholder="Enter phone number...">
+            </div>
+
+            <!-- Filter by Group -->
+            <div class="mb-3">
+                <label for="groupFilter" class="form-label">Filter by Group</label>
+                <select class="form-select" id="groupFilter" name="group">
+                    <option value="">All Groups</option>
+                    <option value="Family">Family</option>
+                    <option value="Work">Work</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Clients">Clients</option>
+                </select>
+            </div>
+
+            <!-- Sort By -->
+            <div class="mb-3">
+                <label for="sortOrder" class="form-label">Sort By</label>
+                <select class="form-select" id="sortOrder" name="sortOrder">
+                    <option value="">Select Order</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+
+            <!-- Additional Filters -->
+            <div class="mb-3">
+                <label class="form-label">Additional Filters</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="starredFilter" name="starred">
+                    <label class="form-check-label" for="starredFilter">
+                        Starred Contacts
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="recentlyAddedFilter" name="recentlyAdded">
+                    <label class="form-check-label" for="recentlyAddedFilter">
+                        Recently Added
+                    </label>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Contact Detail";
+}
+
+
+<div class="container-fluid px-4">
+    <!-- Page Title -->
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1 class="h3">Contact Details</h1>
+        <div>
+            <a href="/Contacts/Edit/1" class="btn btn-warning">Edit</a>
+            <a href="/Contacts/Delete/1" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+    <!-- Contact Details Card -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <div class="row mb-3">
+                <!-- User Image Section -->
+                <div class="col-md-4 text-center">
+                    <img src="https://picsum.photos/id/237/200/300" alt="User Image" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <h4>John Doe</h4>
+                    <p class="text-muted">Software Engineer</p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-md-4">
+                    <h5>Contact Information</h5>
+                    <p><strong>Email:</strong> johndoe@example.com</p>
+                    <p><strong>Phone:</strong> +1 234 567 890</p>
+                    <p><strong>Address:</strong> 123 Main Street, Cityville, Country</p>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="col-md-4">
+                    <h5>Additional Information</h5>
+                    <p><strong>Company:</strong> Example Corp</p>
+                    <p><strong>Group:</strong> Friends</p>
+                    <p><strong>Tags:</strong> Work, School, Personal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5>Activity Log</h5>
+            <ul class="list-group mt-3">
+                <li class="list-group-item">Called on 01/04/2025</li>
+                <li class="list-group-item">Emailed on 30/03/2025</li>
+                <li class="list-group-item">Met in person on 25/03/2025</li>
+            </ul>
+        </div>
+    </div>
+</div>

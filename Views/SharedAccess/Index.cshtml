@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Shared Access";
+}
+
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Shared Access</h2>
+
+    <!-- Bootstrap Tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="manage-access-tab" data-bs-toggle="tab" data-bs-target="#manage-access" type="button" role="tab" aria-controls="manage-access" aria-selected="true">Manage Access</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="view-shared-tab" data-bs-toggle="tab" data-bs-target="#view-shared" type="button" role="tab" aria-controls="view-shared" aria-selected="false">View Shared Contacts</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content mt-3" id="myTabContent">
+
+        <!-- Manage Access Tab -->
+        <div class="tab-pane fade show active" id="manage-access" role="tabpanel" aria-labelledby="manage-access-tab">
+            <a asp-controller="Contacts" asp-action="SearchUser" class="btn btn-primary mb-3">Add User</a>
+
+            <div class="row gy-3">
+                <!-- Viewer 1 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <!-- Image Section -->
+                        <img src="https://picsum.photos/id/237/80/80" class="rounded"
+                             style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                        <!-- Info and Buttons Section -->
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">viewer1@example.com</h6>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Access Level: Viewer</p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <button class="btn btn-sm btn-danger">Revoke</button>
+                                <button class="btn btn-sm btn-success">Grant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viewer 2 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <!-- Image Section -->
+                        <img src="https://picsum.photos/id/238/80/80" class="rounded"
+                             style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                        <!-- Info and Buttons Section -->
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">editor1@example.com</h6>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Access Level: Editor</p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <button class="btn btn-sm btn-danger">Revoke</button>
+                                <button class="btn btn-sm btn-success">Grant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viewer 3 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <!-- Image Section -->
+                        <img src="https://picsum.photos/id/239/80/80" class="rounded"
+                             style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                        <!-- Info and Buttons Section -->
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">user3@example.com</h6>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Access Level: Viewer</p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <button class="btn btn-sm btn-danger">Revoke</button>
+                                <button class="btn btn-sm btn-success">Grant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Shared Contacts Tab -->
+        <div class="tab-pane fade" id="view-shared" role="tabpanel" aria-labelledby="view-shared-tab">
+            <div class="row gy-3">
+
+                <!-- Owner 1 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <!-- Image Section -->
+                        <img src="https://picsum.photos/id/240/80/80" class="rounded"
+                             style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                        <!-- Info and Buttons Section -->
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">Alice</h6>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Owner: Alice</p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <a href="#" class="btn btn-sm btn-primary">View Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Owner 2 -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <!-- Image Section -->
+                        <img src="https://picsum.photos/id/241/80/80" class="rounded"
+                             style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+
+                        <!-- Info and Buttons Section -->
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">Bob</h6>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Owner: Bob</p>
+
+                            <!-- Action Buttons -->
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <a href="#" class="btn btn-sm btn-primary">View Contacts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
