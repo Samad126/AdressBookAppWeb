@@ -21,7 +21,6 @@
             <input type="text" class="form-control" id="contactName" placeholder="Enter contact name" required>
         </div>
 
-        <!-- New Position Field Added -->
         <div class="mb-3">
             <label for="contactPosition" class="form-label">Position</label>
             <input type="text" class="form-control" id="contactPosition" placeholder="Enter position (e.g., Software Engineer)">
@@ -47,9 +46,16 @@
             <input type="text" class="form-control" id="contactCompany" placeholder="Enter company name">
         </div>
 
+        <!-- Group changed to SELECT -->
         <div class="mb-3">
             <label for="contactGroup" class="form-label">Group</label>
-            <input type="text" class="form-control" id="contactGroup" placeholder="Enter group (e.g., Friends)">
+            <select class="form-control" id="contactGroup">
+                <option value="" disabled selected>Select a group</option>
+                <option value="Friends">Friends</option>
+                <option value="Family">Family</option>
+                <option value="Work">Work</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
 
         <div class="mb-3">

@@ -21,7 +21,6 @@
             <input type="text" class="form-control" id="editContactName" value="John Doe" required>
         </div>
 
-        <!-- New Position Field Added -->
         <div class="mb-3">
             <label for="editContactPosition" class="form-label">Position</label>
             <input type="text" class="form-control" id="editContactPosition" value="Software Engineer">
@@ -47,9 +46,15 @@
             <input type="text" class="form-control" id="editContactCompany" value="Example Corp">
         </div>
 
+        <!-- Group changed to SELECT -->
         <div class="mb-3">
             <label for="editContactGroup" class="form-label">Group</label>
-            <input type="text" class="form-control" id="editContactGroup" value="Friends">
+            <select class="form-control" id="editContactGroup">
+                <option value="Friends" selected>Friends</option>
+                <option value="Family">Family</option>
+                <option value="Work">Work</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
 
         <div class="mb-3">
