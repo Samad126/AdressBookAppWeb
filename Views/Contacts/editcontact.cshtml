@@ -2,32 +2,61 @@
     ViewData["Title"] = "Edit Contact";
 }
 
-<div class="container-fluid px-4">
-    <form id="addContactForm" enctype="multipart/form-data" class="mt-4">
+<div class="container-fluid px-4 pb-4">
+    <form id="editContactForm" enctype="multipart/form-data" class="mt-4">
+        <h2>Edit Contact</h2>
+
         <div class="mb-3">
-            <label for="contactImage" class="form-label">Upload Contact Image</label>
-            <input type="file" class="form-control" id="contactImage" accept="image/*" onchange="previewImage(event)">
+            <label for="editContactImage" class="form-label">Change Contact Image</label>
+            <input type="file" class="form-control" id="editContactImage" accept="image/*" onchange="previewImage(event)">
         </div>
+
         <div class="mb-3">
-            <img id="imagePreview" src="" alt="Image Preview" class="img-thumbnail"
-                 style="display: none; max-width: 200px; margin-top: 10px;">
+            <img id="imagePreview" src="path_to_existing_image.jpg" alt="Image Preview" class="img-thumbnail"
+                 style="max-width: 200px; margin-top: 10px;">
         </div>
+
         <div class="mb-3">
-            <label for="contactName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="contactName" placeholder="Enter contact name" required>
+            <label for="editContactName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="editContactName" value="John Doe" required>
         </div>
+
+        <!-- New Position Field Added -->
         <div class="mb-3">
-            <label for="contactEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="contactEmail" placeholder="Enter email" required>
+            <label for="editContactPosition" class="form-label">Position</label>
+            <input type="text" class="form-control" id="editContactPosition" value="Software Engineer">
         </div>
+
         <div class="mb-3">
-            <label for="contactPhone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="contactPhone" placeholder="Enter phone number" required>
+            <label for="editContactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="editContactEmail" value="johndoe@example.com" required>
         </div>
+
         <div class="mb-3">
-            <label for="contactAddress" class="form-label">Address</label>
-            <textarea class="form-control" id="contactAddress" rows="3" placeholder="Enter address"></textarea>
+            <label for="editContactPhone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="editContactPhone" value="+1 234 567 890" required>
         </div>
-        <button type="submit" class="btn btn-primary">Add Contact</button>
+
+        <div class="mb-3">
+            <label for="editContactAddress" class="form-label">Address</label>
+            <textarea class="form-control" id="editContactAddress" rows="3">123 Main Street, Cityville, Country</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="editContactCompany" class="form-label">Company</label>
+            <input type="text" class="form-control" id="editContactCompany" value="Example Corp">
+        </div>
+
+        <div class="mb-3">
+            <label for="editContactGroup" class="form-label">Group</label>
+            <input type="text" class="form-control" id="editContactGroup" value="Friends">
+        </div>
+
+        <div class="mb-3">
+            <label for="editContactTags" class="form-label">Tags</label>
+            <input type="text" class="form-control" id="editContactTags" value="Work, School, Personal">
+        </div>
+
+        <button type="submit" class="btn btn-success">Update Contact</button>
     </form>
 </div>
