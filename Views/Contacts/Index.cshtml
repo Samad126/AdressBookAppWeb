@@ -1,15 +1,15 @@
-﻿
-@{
-    ViewData["Title"] = "contacts";
+﻿@{
+    ViewData["Title"] = "Contacts";
 }
 
 <div class="container-fluid px-4">
     <h2 class="mt-4">Contacts</h2>
+
     <div class="row align-items-start justify-content-between mb-4">
         <div class="col-lg-6 col-md-8 col-sm-12 mb-3 d-flex flex-wrap gap-2">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContactModal">Add New Contact</button>
-            <button class="btn btn-secondary">Import Contacts</button>
-            <button class="btn btn-secondary">Export Contacts</button>
+            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#importContactsModal">Import Contacts</button>
+            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportContactsModal">Export Contacts</button>
         </div>
 
         <div class="col-lg-3 col-md-4 col-sm-12 mb-3 text-end">
@@ -23,11 +23,7 @@
         <!-- Contact Card 1 -->
         <div class="col-sm-6 col-md-4">
             <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <!-- Image Section -->
-                <img src="https://picsum.photos/id/237/80/80" class="rounded"
-                     style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-
-                <!-- Info and Buttons Section -->
+                <img src="https://picsum.photos/id/237/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
                 <div class="ms-3 w-100">
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <h6 class="mb-0">John Doe</h6>
@@ -36,7 +32,6 @@
                     <p class="mb-0" style="font-size: 0.85rem;">Phone: 123-456-7890</p>
                     <p class="mb-1" style="font-size: 0.85rem;">Email: john@example.com</p>
 
-                    <!-- Action Buttons -->
                     <div class="d-flex gap-1 mt-2 flex-wrap">
                         <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
                         <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
@@ -49,11 +44,7 @@
         <!-- Contact Card 2 -->
         <div class="col-sm-6 col-md-4">
             <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <!-- Image Section -->
-                <img src="https://picsum.photos/id/238/80/80" class="rounded"
-                     style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-
-                <!-- Info and Buttons Section -->
+                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
                 <div class="ms-3 w-100">
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <h6 class="mb-0">Jane Smith</h6>
@@ -62,7 +53,6 @@
                     <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
                     <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
 
-                    <!-- Action Buttons -->
                     <div class="d-flex gap-1 mt-2 flex-wrap">
                         <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
                         <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
@@ -74,25 +64,74 @@
     </div>
 </div>
 
+<!-- Add Contact Modal -->
 <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+
             <div class="modal-header">
                 <h5 class="modal-title" id="addContactModalLabel">Add New Contact</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
             <div class="modal-body">
                 <p>Select how you want to add a new contact (if user has registered on website you can add using user key):</p>
                 <div class="d-grid gap-2">
-                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="AddContact" >Add Manually</a>
-
-                    <a class="btn btn-secondary" asp-controller="Contacts" asp-action="SearchUser" >Add Using User Key</a>
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="AddContact">Add Manually</a>
+                    <a class="btn btn-secondary" asp-controller="Contacts" asp-action="SearchUser">Add Using User Key</a>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
+<!-- Import Contacts Modal -->
+<div class="modal fade" id="importContactsModal" tabindex="-1" aria-labelledby="importContactsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="importContactsModalLabel">Import Contacts</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Select source to import contacts:</p>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="ImportFromExcel">Import from Excel (.xlsx)</a>
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="ImportFromCsv">Import from CSV (.csv)</a>
+                    <a class="btn btn-success" asp-controller="Contacts" asp-action="ImportFromGoogle">Import from Google Contacts</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Export Contacts Modal -->
+<div class="modal fade" id="exportContactsModal" tabindex="-1" aria-labelledby="exportContactsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exportContactsModalLabel">Export Contacts</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Select format to export contacts:</p>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="ExportToExcel">Export to Excel (.xlsx)</a>
+                    <a class="btn btn-primary" asp-controller="Contacts" asp-action="ExportToCsv">Export to CSV (.csv)</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Search Contacts Offcanvas -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search & Filter Contacts</h5>
