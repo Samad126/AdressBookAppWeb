@@ -32,11 +32,35 @@
                 </span>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="width: 300px;">
                     <li><h6 class="dropdown-header">Notifications</h6></li>
-                    <li><a class="dropdown-item" href="#">🎂 Today is John's birthday</a></li>
-                    <li><a class="dropdown-item" href="#">🎂 Today is Alice's birthday</a></li>
-                    <li><a class="dropdown-item" href="#">🎂 Today is Bob's birthday</a></li>
+
+                    <!-- Birthday: John -->
+                    <li>
+                        <a class="dropdown-item" asp-controller="Notifications" asp-action="BirthdayDetail">
+                            🎂 Today is John's birthday
+                        </a>
+                    </li>
+
+                    <!-- Birthday: Alice -->
+                    <li>
+                        <a class="dropdown-item" asp-controller="Notifications" asp-action="BirthdayDetail">
+                            🎂 Today is Alice's birthday
+                        </a>
+                    </li>
+
+                    <!-- Add Request: Mike -->
+                    <li>
+                        <a class="dropdown-item" asp-controller="Notifications" asp-action="AddRequestDetail">
+                            ➕ Mike Johnson sent a request
+                        </a>
+                    </li>
+
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item text-center" asp-controller="Notifications" asp-action="Index">View All Notifications</a></li>
+
+                    <li>
+                        <a class="dropdown-item text-center" asp-controller="Notifications" asp-action="Index">
+                            View All Notifications
+                        </a>
+                    </li>
                 </ul>
             </li>
 

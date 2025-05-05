@@ -1,46 +1,77 @@
 ﻿@{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "Notifications";
 }
 
-<div class="container-fluid px-4 my-4">
-    <h2 class="mb-4">Notifications</h2>
+<div class="container-fluid px-4 pb-4">
+    <h2 class="mt-4 mb-4">Notifications</h2>
 
-    <!-- Notification List -->
-    <div class="list-group">
-        <!-- Birthday Notification -->
+    <!-- Notifications List -->
+    <div class="list-group mb-4">
+        <!-- Birthday: John Doe -->
         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <span class="badge bg-primary me-2">🎂</span>
-                Today is <strong>John's</strong> birthday!
+            <div>🎂 <strong>John Doe</strong>'s birthday is today! 🎉</div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-primary">Send Wishes</button>
+                <a asp-controller="Notifications" asp-action="BirthdayDetail" class="btn btn-sm btn-info">View</a>
             </div>
-            <small class="text-muted">5 mins ago</small>
         </div>
 
-        <!-- Contact Request Notification -->
+        <!-- Add Request: Mike Johnson -->
         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <span class="badge bg-warning me-2">🔔</span>
-                You have a new contact request from <strong>Alice</strong>.
+            <div>➕ <strong>Mike Johnson</strong> sent a request to add you.</div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-success">Accept</button>
+                <button class="btn btn-sm btn-danger">Reject</button>
+                <a asp-controller="Notifications" asp-action="AddRequestDetail" class="btn btn-sm btn-info">View</a>
             </div>
-            <small class="text-muted">1 hour ago</small>
         </div>
 
-        <!-- Shared Access Notification -->
+        <!-- Birthday: Jane Smith -->
         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <span class="badge bg-success me-2">📁</span>
-                <strong>Bob</strong> shared his contact list with you.
+            <div>🎂 <strong>Jane Smith</strong>'s birthday is tomorrow! 🎈</div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-primary">Send Wishes</button>
+                <a asp-controller="Notifications" asp-action="BirthdayDetail" class="btn btn-sm btn-info">View</a>
             </div>
-            <small class="text-muted">Yesterday</small>
         </div>
 
-        <!-- Random Notification -->
+        <!-- Add Request: Emily Davis -->
         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-            <div>
-                <span class="badge bg-danger me-2">⚠️</span>
-                Reminder: Update your profile information.
+            <div>➕ <strong>Emily Davis</strong> sent a request to add you.</div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-success">Accept</button>
+                <button class="btn btn-sm btn-danger">Reject</button>
+                <a asp-controller="Notifications" asp-action="AddRequestDetail" class="btn btn-sm btn-info">View</a>
             </div>
-            <small class="text-muted">2 days ago</small>
+        </div>
+
+        <!-- Add Request: Chris Brown -->
+        <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            <div>➕ <strong>Chris Brown</strong> sent a request to add you.</div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-sm btn-success">Accept</button>
+                <button class="btn btn-sm btn-danger">Reject</button>
+                <a asp-controller="Notifications" asp-action="AddRequestDetail" class="btn btn-sm btn-info">View</a>
+            </div>
         </div>
     </div>
+
+
+    <!-- Bootstrap Pagination Controls -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/Notifications/Page2">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/Notifications/Page2">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
