@@ -40,15 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
             events: [
                 {
                     title: "John's Birthday",
-                    start: "2025-04-10",
+                    start: "2025-05-10",
                 },
                 {
                     title: "Anniversary Reminder",
-                    start: "2025-04-15",
+                    start: "2025-05-15",
                 },
                 {
                     title: "Follow-up with Client",
-                    start: "2025-04-20",
+                    start: "2025-05-20",
                 },
             ],
         });
