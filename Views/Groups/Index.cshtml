@@ -17,6 +17,7 @@
                     <tr>
                         <th><input type="checkbox" id="selectAllGroups"></th>
                         <th>Group Name</th>
+                        <th>Group Description</th> <!-- New Column -->
                         <th>Total Contacts</th>
                         <th>Actions</th>
                     </tr>
@@ -26,18 +27,20 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Family</td>
+                        <td>Family members and relatives</td> <!-- Group Description -->
                         <td>12</td>
                         <td>
-                            <button class="btn btn-sm btn-warning me-2">Edit</button>
+                            <a asp-controller="Groups" asp-action="EditGroup" class="btn btn-sm btn-warning me-2">Edit</a>
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
+                        <td>Colleagues and office contacts</td> <!-- Group Description -->
                         <td>23</td>
                         <td>
-                            <button class="btn btn-sm btn-warning me-2">Edit</button>
+                            <a asp-controller="Groups" asp-action="EditGroup" class="btn btn-sm btn-warning me-2">Edit</a>
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
@@ -45,11 +48,7 @@
             </table>
 
             <!-- Bulk Action Buttons -->
-            <div class="mt-3">
-                <button class="btn btn-secondary me-2" id="deleteSelected">Delete Selected</button>
-                <!-- <button class="btn btn-secondary me-2" id="moveSelected">Move Selected</button> -->
-                <!-- <button class="btn btn-secondary" id="tagSelected">Tag Selected</button> -->
-            </div>
+            <button class="btn btn-secondary me-2 mt-2" id="deleteSelected">Delete Selected</button>
         </div>
     </div>
 </div>
