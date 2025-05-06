@@ -59,18 +59,24 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <!-- Dashboard -->
-                        @* <div class="sb-sidenav-menu-heading">Core</div> *@
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")"
-                           asp-controller="Dashboard" asp-action="Index">
+                           asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <!-- Contact Management -->
-                        @* <div class="sb-sidenav-menu-heading">Address Book</div> *@
-                        <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Contacts" ? "active" : "")"
-                           asp-controller="Contacts" asp-action="Index">
-                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                            Contacts
+
+                        <!-- Users Management -->
+                        <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Users" ? "active" : "")"
+                           asp-area="Admin" asp-controller="Users" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Users
+                        </a>
+
+                        <!-- Contact Reports -->
+                        <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContactReports" ? "active" : "")"
+                           asp-area="Admin" asp-controller="ContactReports" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                            Contact Reports
                         </a>
                     </div>
                 </div>

@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Contact Reports";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Contact Reports</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+        <li class="breadcrumb-item active">Contact Reports</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-envelope me-1"></i>
+            Incoming Contact Us Messages
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Sender Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example static messages -->
+                    <tr>
+                        <td>1</td>
+                        <td>Michael Brown</td>
+                        <td>michael@example.com</td>
+                        <td>Problem Logging In</td>
+                        <td>I'm unable to access my account. Please assist.</td>
+                        <td>2024-05-05</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sarah Wilson</td>
+                        <td>sarah@example.com</td>
+                        <td>Suggestion for Feature</td>
+                        <td>It would be great to have a dark mode!</td>
+                        <td>2024-05-04</td>
+                    </tr>
+                    <!-- Repeat dynamically later -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
