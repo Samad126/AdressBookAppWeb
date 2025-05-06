@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "View Contact Report";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Contact Report Details</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a asp-controller="ContactReports" asp-action="Index">Contact Reports</a></li>
+        <li class="breadcrumb-item active">View</li>
+    </ol>
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <!-- Contact Report Details -->
+            <div class="mb-3">
+                <label class="form-label fw-bold">Sender Name:</label>
+                <div>Michael Brown</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Email:</label>
+                <div>michael@example.com</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Subject:</label>
+                <div>Problem Logging In</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Message:</label>
+                <div>
+                    I'm unable to access my account. Please assist as soon as possible.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Date:</label>
+                <div>2024-05-05</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reply to Sender Form -->
+    <div class="card shadow-sm mb-4">
+        <div class="card-header">
+            <i class="fas fa-reply me-1"></i> Reply to Sender
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="SendReply">
+                @* (No backend yet, just UI) *@
+
+                <div class="mb-3">
+                    <label for="emailTo" class="form-label">To</label>
+                    <input type="email" class="form-control" id="emailTo" name="emailTo" value="michael@example.com" readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" value="Re: Problem Logging In">
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="6" placeholder="Type your reply here..."></textarea>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Send Reply</button>
+                    <a asp-area="Admin" asp-controller="ContactReports" asp-action="Index" class="btn btn-secondary">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

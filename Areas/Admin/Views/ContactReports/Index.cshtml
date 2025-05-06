@@ -9,13 +9,52 @@
         <li class="breadcrumb-item active">Contact Reports</li>
     </ol>
 
+    <!-- Search/Filter Button -->
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
+            <i class="fas fa-filter"></i> Filter Reports
+        </button>
+    </div>
+
+    <!-- Offcanvas Filter Panel -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 id="filterOffcanvasLabel">Filter Contact Reports</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <form method="get">
+                <div class="mb-3">
+                    <label for="senderFilter" class="form-label">Sender Name</label>
+                    <input type="text" class="form-control" id="senderFilter" name="sender" placeholder="Enter sender name">
+                </div>
+                <div class="mb-3">
+                    <label for="emailFilter" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailFilter" name="email" placeholder="Enter email">
+                </div>
+                <div class="mb-3">
+                    <label for="subjectFilter" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subjectFilter" name="subject" placeholder="Enter subject">
+                </div>
+                <div class="mb-3">
+                    <label for="dateFilter" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="dateFilter" name="date">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Reports Table -->
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-envelope me-1"></i>
             Incoming Contact Us Messages
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped align-middle">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -24,6 +63,7 @@
                         <th>Subject</th>
                         <th>Message</th>
                         <th>Date</th>
+                        <th style="width: 150px;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,6 +75,12 @@
                         <td>Problem Logging In</td>
                         <td>I'm unable to access my account. Please assist.</td>
                         <td>2024-05-05</td>
+                        <td>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a asp-area="Admin" asp-controller="ContactReports" asp-action="ContactReportDetail" class="btn btn-sm btn-info">View or Reply</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -43,6 +89,12 @@
                         <td>Suggestion for Feature</td>
                         <td>It would be great to have a dark mode!</td>
                         <td>2024-05-04</td>
+                        <td>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a asp-area="Admin" asp-controller="ContactReports" asp-action="ContactReportDetail" class="btn btn-sm btn-info">View or Reply</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
+                        </td>
                     </tr>
                     <!-- Repeat dynamically later -->
                 </tbody>

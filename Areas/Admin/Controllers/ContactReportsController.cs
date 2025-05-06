@@ -9,5 +9,10 @@ namespace AdressBookAppWeb.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult ContactReportDetail()
+        {
+            return View();
+        }
     }
 }
