@@ -10,7 +10,12 @@ namespace AdressBookAppWeb.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Detail()
+        public IActionResult Details()
+        {
+            return View();
+        }
+
+        public IActionResult Add()
         {
             return View();
         }

@@ -5,18 +5,25 @@
 <div class="container-fluid px-4">
     <h1 class="mt-4">Users</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
         <li class="breadcrumb-item active">Users</li>
     </ol>
 
-    <!-- Search/Filter Button -->
-    <div class="d-flex justify-content-end mb-3">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
-            <i class="fas fa-filter"></i> Filter Users
-        </button>
+    <!-- Buttons -->
+    <div class="d-flex justify-content-between mb-3 flex-wrap gap-2">
+        <div>
+            <a asp-area="Admin" asp-controller="Users" asp-action="Add" class="btn btn-success">
+                <i class="fas fa-user-plus"></i> Add User
+            </a>
+        </div>
+        <div>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
+                <i class="fas fa-filter"></i> Filter Users
+            </button>
+        </div>
     </div>
 
-    <!-- Offcanvas Filter Panel -->
+    <!-- Filter Offcanvas (same as before) -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
         <div class="offcanvas-header">
             <h5 id="filterOffcanvasLabel">Filter Users</h5>
@@ -54,10 +61,11 @@
             Users List
         </div>
         <div class="card-body">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped align-middle">
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Profile</th>
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Role</th>
@@ -68,24 +76,35 @@
                     <!-- Example static users -->
                     <tr>
                         <td>1</td>
+                        <td>
+                            <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Profile Image" width="50" height="50">
+                        </td>
                         <td>John Doe</td>
                         <td>john@example.com</td>
                         <td>Admin</td>
                         <td>
-                            <a asp-area="Admin" asp-controller="Users" asp-action="Detail" class="btn btn-sm btn-info">View</a>
-                            <a asp-area="Admin" asp-controller="Users" asp-action="Edit" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a asp-area="Admin" asp-controller="Users" asp-action="Details" class="btn btn-sm btn-info">View</a>
+                                <a asp-area="Admin" asp-controller="Users" asp-action="Edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
                         </td>
                     </tr>
+
                     <tr>
                         <td>2</td>
+                        <td>
+                            <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Profile Image" width="50" height="50">
+                        </td>
                         <td>Jane Smith</td>
                         <td>jane@example.com</td>
                         <td>User</td>
                         <td>
-                            <a asp-area="Admin" asp-controller="Users" asp-action="Detail" class="btn btn-sm btn-info">View</a>
-                            <a asp-area="Admin" asp-controller="Users" asp-action="Edit" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            <div class="d-flex gap-1 flex-wrap">
+                                <a asp-area="Admin" asp-controller="Users" asp-action="Details" class="btn btn-sm btn-info">View</a>
+                                <a asp-area="Admin" asp-controller="Users" asp-action="Edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
                         </td>
                     </tr>
                     <!-- Repeat dynamically later -->

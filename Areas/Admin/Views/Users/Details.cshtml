@@ -11,7 +11,13 @@
     </ol>
 
     <div class="card mb-4 shadow-sm">
-        <div class="card-body">
+        <div class="card-body text-center">
+
+            <!-- Profile Image -->
+            <div class="mb-4">
+                <img src="https://via.placeholder.com/120" class="rounded-circle shadow-sm" alt="Profile Image" width="120" height="120">
+            </div>
+
             <!-- User Details -->
             <div class="mb-3">
                 <label class="form-label fw-bold">Full Name:</label>
@@ -33,24 +39,18 @@
                 <div>Admin</div>
             </div>
 
-            @* <div class="mb-3">
-                <label class="form-label fw-bold">Status:</label>
-                <div><span class="badge bg-success">Active</span></div>
-            </div> *@
-
             <div class="mb-3">
                 <label class="form-label fw-bold">Registration Date:</label>
                 <div>2024-05-01</div>
             </div>
 
-            <div class="d-flex gap-2 mt-4">
+            <!-- Buttons -->
+            <div class="d-flex gap-2 justify-content-center mt-4">
                 <a asp-area="Admin" asp-controller="Users" asp-action="Index" class="btn btn-secondary">Back to Users</a>
-
-                <!-- Optional future admin actions -->
                 <a asp-area="Admin" asp-controller="Users" asp-action="Edit" class="btn btn-warning">Edit User</a>
-                @* <a href="#" class="btn btn-danger">Deactivate User</a> *@
                 <a href="#" class="btn btn-danger">Delete User</a>
             </div>
+
         </div>
     </div>
 </div>
