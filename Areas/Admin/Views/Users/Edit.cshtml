@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Edit User</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a></li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <form method="post" asp-action="Edit">
+                @* (Backend binding will be done later) *@
+
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" name="FullName" value="John Doe" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="Email" value="john.doe@example.com" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="Phone" value="+1 234 567 8901">
+                </div>
+
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select class="form-select" id="role" name="Role">
+                        <option selected>Admin</option>
+                        <option>User</option>
+                    </select>
+                </div>
+
+                @* <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="Status">
+                        <option selected>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div> *@
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a asp-area="Admin" asp-controller="Users" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

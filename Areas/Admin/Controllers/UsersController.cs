@@ -9,5 +9,15 @@ namespace AdressBookAppWeb.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult Detail()
+        {
+            return View();
+        }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
     }
 }
