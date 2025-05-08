@@ -33,19 +33,11 @@
                             <h5 class="mb-1">John Doe</h5>
                         </div>
                         <div class="d-flex gap-2">
-                            <button class="btn btn-success add-user-button"
+                            <button class="btn btn-primary action-user-button"
                                     data-user-id="12345"
                                     data-user-name="John Doe"
                                     data-bs-toggle="modal"
-                                    data-bs-target="#addUserModal">
-                                Add Contact
-                            </button>
-                            <button class="btn btn-primary request-access-button"
-                                    data-user-id="12345"
-                                    data-user-name="John Doe"
-                                    data-bs-toggle="tooltip"
-                                    data-bs-placement="top"
-                                    title="Request access to this user's contacts">
+                                    data-bs-target="#userActionModal">
                                 Request Access
                             </button>
                         </div>
@@ -56,6 +48,28 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="userActionModal" tabindex="-1" aria-labelledby="userActionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="userActionModalLabel">Choose request type for <span id="selectedUserName"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-success" id="addContactBtn">For adding this contact to your contacts list</button>
+                    <button class="btn btn-primary" id="requestAccessBtn">For looking their contacts</button>
+                    <button class="btn btn-warning" id="giveAccessBtn">For allowing look your contacts</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <!-- Add User Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
