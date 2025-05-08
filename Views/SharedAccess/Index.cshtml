@@ -31,8 +31,12 @@
         <!-- Manage Access Tab -->
         <div class="tab-pane fade show active" id="manage-access" role="tabpanel"
              aria-labelledby="manage-access-tab">
-            <a asp-controller="Contacts" asp-action="SearchUser"
-               class="btn btn-primary mb-3">Add User</a>
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                <a asp-controller="Contacts" asp-action="SearchUser" class="btn btn-primary">Add User</a>
+                <button class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#filterManageAccess">
+                    Filter Users
+                </button>
+            </div>
 
             <div class="row gy-3">
                 <!-- Viewer 1 -->
@@ -117,6 +121,11 @@
         <!-- View Shared Contacts Tab -->
         <div class="tab-pane fade" id="view-shared" role="tabpanel"
              aria-labelledby="view-shared-tab">
+            <div class="d-flex mb-3">
+                <button class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#filterViewShared">
+                    Filter Owners
+                </button>
+            </div>
             <div class="row gy-3">
                 <!-- Owner 1 -->
                 <div class="col-sm-6 col-md-4">
@@ -129,6 +138,7 @@
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <h6 class="mb-0">Alice</h6>
                             </div>
+                            <p class="mb-0">test@example.com</p>
                             <div class="d-flex gap-1 mt-2 flex-wrap">
                                 <a asp-controller="SharedAccess"
                                    asp-action="ContactDetails"
@@ -150,6 +160,7 @@
                             <div class="d-flex justify-content-between align-items-center mb-1">
                                 <h6 class="mb-0">Bob</h6>
                             </div>
+                            <p class="mb-0">test@example.com</p>
                             <div class="d-flex gap-1 mt-2 flex-wrap">
                                 <a asp-controller="SharedAccess"
                                    asp-action="ContactDetails"
@@ -182,5 +193,46 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterManageAccess" aria-labelledby="filterManageAccessLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="filterManageAccessLabel">Filter Users</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <form id="filterManageAccessForm" >
+            <div class="mb-3">
+                <label for="manageAccessName" class="form-label">Name or Email</label>
+                <input type="text" id="manageAccessName" class="form-control" placeholder="Enter name or email...">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="button" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterViewShared" aria-labelledby="filterViewSharedLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="filterViewSharedLabel">Filter Owners</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <form id="filterViewSharedForm">
+            <div class="mb-3">
+                <label for="viewSharedOwner" class="form-label">Owner Name or email</label>
+                <input type="text" id="viewSharedOwner" class="form-control" placeholder="Enter owner name or email...">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="button" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
     </div>
 </div>
