@@ -6,7 +6,12 @@
     <!-- Groups Management Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Groups Management</h2>
-        <a class="btn btn-primary" asp-controller="Groups" asp-action="AddGroup">+ Create New Group</a>
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary" asp-controller="Groups" asp-action="AddGroup">+ Create New Group</a>
+            <button class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#groupFilterOffcanvas">
+                Filter Groups
+            </button>
+        </div>
     </div>
 
     <!-- Groups List Table -->
@@ -110,8 +115,38 @@
             <!-- Bulk Action Buttons -->
             <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
                 <button class="btn btn-secondary me-2 mt-2" id="deleteSelected">Delete Selected</button>
-
             </div>
         </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="groupFilterOffcanvas" aria-labelledby="groupFilterOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="groupFilterOffcanvasLabel">Filter Groups</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <form id="groupFilterForm">
+            <div class="mb-3">
+                <label for="groupNameFilter" class="form-label">Group Name</label>
+                <input type="text" class="form-control" id="groupNameFilter" placeholder="Search by group name...">
+            </div>
+
+            <div class="mb-3">
+                <label for="groupNameFilter" class="form-label">Description</label>
+                <input type="text" class="form-control" id="descriptionFilter" placeholder="Search by description...">
+            </div>
+
+            <div class="mb-3">
+                <label for="contactRangeFilter" class="form-label">Minimum Contacts</label>
+                <input type="number" class="form-control" id="contactRangeFilter" min="0" placeholder="e.g. 5">
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="button" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
     </div>
 </div>
