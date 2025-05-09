@@ -226,11 +226,22 @@
     </div>
 
     <div class="offcanvas-body">
-        <form id="filterManageAccessForm" >
+        <form id="filterManageAccessForm">
             <div class="mb-3">
                 <label for="manageAccessName" class="form-label">Name or Email</label>
                 <input type="text" id="manageAccessName" class="form-control" placeholder="Enter name or email...">
             </div>
+
+            <!-- New Access Status Filter -->
+            <div class="mb-3">
+                <label for="accessStatusFilter" class="form-label">Access Status</label>
+                <select id="accessStatusFilter" class="form-select">
+                    <option value="" selected>All</option>
+                    <option value="accessed">Accessed</option>
+                    <option value="revoked">Revoked</option>
+                </select>
+            </div>
+
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Search</button>
                 <button type="button" class="btn btn-secondary">Reset</button>
@@ -238,7 +249,6 @@
         </form>
     </div>
 </div>
-
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="filterViewShared" aria-labelledby="filterViewSharedLabel">
     <div class="offcanvas-header">
