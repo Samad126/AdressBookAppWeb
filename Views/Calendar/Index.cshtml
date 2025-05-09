@@ -10,3 +10,52 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="dayClickModal" tabindex="-1" aria-labelledby="dayClickModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dayClickModalLabel">Contacts on <span id="clickedDateDisplay"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Do you want to view contacts related to this date?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary" id="viewContactBtn">View Contact</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/main.min.css"
+      rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: [
+          { title: "John's Birthday",     start: "2025-05-10" },
+          { title: "Anniversary Reminder", start: "2025-05-15" },
+          { title: "Follow-up with Client", start: "2025-05-20" }
+        ],
+        dateClick: function(info) {
+          document.getElementById("clickedDateDisplay").innerText = info.dateStr;
+          document.getElementById("viewContactBtn").href =
+            `/Contacts/ByDate?date=${info.dateStr}`;
+          new bootstrap.Modal(
+            document.getElementById("dayClickModal")
+          ).show();
+        }
+      });
+      calendar.render();
+    });
+</script>

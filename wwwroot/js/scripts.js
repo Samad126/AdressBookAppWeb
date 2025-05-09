@@ -25,34 +25,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    var calendarEl = document.getElementById("calendar");
-
-    if (calendarEl) {
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: "dayGridMonth",
-            headerToolbar: {
-                left: "prev,next today",
-                center: "title",
-                right: "dayGridMonth,timeGridWeek,timeGridDay",
-            },
-            events: [
-                {
-                    title: "John's Birthday",
-                    start: "2025-05-10",
-                },
-                {
-                    title: "Anniversary Reminder",
-                    start: "2025-05-15",
-                },
-                {
-                    title: "Follow-up with Client",
-                    start: "2025-05-20",
-                },
-            ],
-        });
-
-        calendar.render();
-    }
-});
