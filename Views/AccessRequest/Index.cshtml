@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "Manage Access Requests";
+}
+
+<div class="container-fluid px-4 mt-4">
+    <h2 class="mb-4">Manage Access Requests</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+        <button class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
+            Filter Requests
+        </button>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>User</th>
+                        <th>Request Type</th>
+                        <th>Direction</th>
+                        <th>Status</th>
+                        <th>Request Date</th>
+                        <th>Accept Date</th>
+                        <th>Reject Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Incoming Request: Pending -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://picsum.photos/id/1015/40/40" class="rounded-circle me-2" alt="User Photo">
+                                <div>John Doe</div>
+                            </div>
+                        </td>
+                        <td>➕ Add to My Contacts</td>
+                        <td><span class="badge bg-info">Incoming</span></td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                        <td>May 7, 2025</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">Accept</a>
+                                <a href="#" class="btn btn-danger btn-sm">Reject</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Outgoing Request: Pending -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://picsum.photos/id/1016/40/40" class="rounded-circle me-2" alt="User Photo">
+                                <div>Jane Smith</div>
+                            </div>
+                        </td>
+                        <td>📩 Request to View Their Contacts</td>
+                        <td><span class="badge bg-secondary">Outgoing</span></td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
+                        <td>May 6, 2025</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-secondary btn-sm">Cancel Request</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Outgoing Request: Accepted -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://picsum.photos/id/1017/40/40" class="rounded-circle me-2" alt="User Photo">
+                                <div>Mike Johnson</div>
+                            </div>
+                        </td>
+                        <td>🎁 Give Access to My Contacts</td>
+                        <td><span class="badge bg-secondary">Outgoing</span></td>
+                        <td><span class="badge bg-success">Accepted</span></td>
+                        <td>May 5, 2025</td>
+                        <td>May 6, 2025</td>
+                        <td>-</td>
+                        <td><span class="text-muted">No actions</span></td>
+                    </tr>
+
+                    <!-- Outgoing Request: Rejected -->
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://picsum.photos/id/1018/40/40" class="rounded-circle me-2" alt="User Photo">
+                                <div>Emma Watson</div>
+                            </div>
+                        </td>
+                        <td>📩 Request to View Their Contacts</td>
+                        <td><span class="badge bg-secondary">Outgoing</span></td>
+                        <td><span class="badge bg-danger">Rejected</span></td>
+                        <td>May 2, 2025</td>
+                        <td>-</td>
+                        <td>May 4, 2025</td>
+                        <td><span class="text-muted">No actions</span></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Filter Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="filterOffcanvasLabel">Filter Requests</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form>
+
+            <!-- User Name Search -->
+            <div class="mb-3">
+                <label for="filterUserName" class="form-label">Search by User</label>
+                <input type="text" class="form-control" id="filterUserName" placeholder="Enter user name...">
+            </div>
+
+            <div class="mb-3">
+                <label for="filterStatus" class="form-label">Status</label>
+                <select class="form-select" id="filterStatus">
+                    <option selected>All</option>
+                    <option>Pending</option>
+                    <option>Accepted</option>
+                    <option>Rejected</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="filterDirection" class="form-label">Direction</label>
+                <select class="form-select" id="filterDirection">
+                    <option selected>All</option>
+                    <option>Incoming</option>
+                    <option>Outgoing</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="filterRequestType" class="form-label">Request Type</label>
+                <select class="form-select" id="filterRequestType">
+                    <option selected>All</option>
+                    <option>Add to My Contacts</option>
+                    <option>Request to View Their Contacts</option>
+                    <option>Give Access to My Contacts</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Request Date Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="requestDateFrom" placeholder="From">
+                    <input type="date" class="form-control" id="requestDateTo" placeholder="To">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Accept Date Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="acceptDateFrom" placeholder="From">
+                    <input type="date" class="form-control" id="acceptDateTo" placeholder="To">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Reject Date Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="rejectDateFrom" placeholder="From">
+                    <input type="date" class="form-control" id="rejectDateTo" placeholder="To">
+                </div>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+                <button type="reset" class="btn btn-secondary">Reset Filters</button>
+            </div>
+        </form>
+    </div>
+</div>
