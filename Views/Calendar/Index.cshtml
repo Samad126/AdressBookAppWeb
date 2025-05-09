@@ -64,7 +64,6 @@
       if (birthdays.length === 0) return;
 
       document.getElementById("clickedDateDisplay").innerText = info.dateStr;
-      document.getElementById("viewContactBtn").href = `/Contacts/ByDate?date=${info.dateStr}`;
 
       // Show "Say Happy Birthday" only if date is today
       const today = new Date().toISOString().split('T')[0];
