@@ -4,7 +4,7 @@
 
 <div class="container-fluid px-4">
     <h2 class="mt-4">Shared Access</h2>
-    <p>Check <a asp-controller="AccessRequest" asp-action="Index">Access Requests</a> page for pending requests</p>
+    <p>Check <a asp-controller="AccessRequest" asp-action="Index">Access Requests</a> page for handling(pending, accepted, rejected) requests which you have done using user key</p>
 
     <!-- Bootstrap Tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -165,7 +165,7 @@
                             <p class="mb-0">test@example.com</p>
                             <div class="d-flex gap-1 mt-2 flex-wrap">
                                 <a asp-controller="SharedAccess"
-                                   asp-action="ContactDetails"
+                                   asp-action="Contacts"
                                    class="btn btn-sm btn-primary">
                                     View Contacts
                                 </a>
@@ -188,7 +188,7 @@
                             <p class="mb-0">test@example.com</p>
                             <div class="d-flex gap-1 mt-2 flex-wrap">
                                 <a asp-controller="SharedAccess"
-                                   asp-action="ContactDetails"
+                                   asp-action="Contacts"
                                    class="btn btn-sm btn-primary">
                                     View Contacts
                                 </a>
