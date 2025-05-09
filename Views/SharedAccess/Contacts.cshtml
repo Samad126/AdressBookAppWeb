@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Shared Contacts";
+}
+
+<div class="container-fluid px-4">
+    <h2 class="mt-4">Shared Contacts</h2>
+
+    <!-- Search Button -->
+    <div class="d-flex justify-content-end mb-4">
+        <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-controls="searchOffcanvas">
+            Search & Filter
+        </button>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="row g-3">
+        <!-- Example Contact Card -->
+        <div class="col-sm-6 col-md-4">
+            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                <img src="https://picsum.photos/id/237/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+                <div class="ms-3 w-100">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <h6 class="mb-0">John Doe</h6>
+                    </div>
+                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 123-456-7890</p>
+                    <p class="mb-1" style="font-size: 0.85rem;">Email: john@example.com</p>
+
+                    <div class="d-flex gap-1 mt-2 flex-wrap">
+                        <a asp-controller="SharedAccess" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat more cards dynamically here -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4">
+        <nav aria-label="Shared Contacts Pagination">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Shared Contacts Search Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search Shared Contacts</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="sharedSearchForm" method="post">
+            <div class="mb-3">
+                <label for="fullnameQuery" class="form-label">Fullname</label>
+                <input type="text" class="form-control mb-2" id="fullnameQuery" name="fullnameQuery" placeholder="Enter fullname...">
+            </div>
+
+            <div class="mb-3">
+                <label for="emailQuery" class="form-label">Email</label>
+                <input type="email" class="form-control mb-2" id="emailQuery" name="emailQuery" placeholder="Enter email...">
+            </div>
+
+            <div class="mb-3">
+                <label for="phoneQuery" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control mb-2" id="phoneQuery" name="phoneQuery" placeholder="Enter phone number...">
+            </div>
+
+            <div class="mb-3">
+                <label for="groupFilter" class="form-label">Group</label>
+                <select class="form-select" id="groupFilter" name="group">
+                    <option value="">All Groups</option>
+                    <option value="Family">Family</option>
+                    <option value="Work">Work</option>
+                    <option value="Friends">Friends</option>
+                    <option value="Clients">Clients</option>
+                </select>
+            </div>
+
+            <!-- Birthday Range -->
+            <div class="mb-3">
+                <label class="form-label">Birthday Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="birthdayFrom" name="birthdayFrom">
+                    <input type="date" class="form-control" id="birthdayTo" name="birthdayTo">
+                </div>
+            </div>
+
+            <!-- Search Buttons -->
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,6 +9,11 @@ namespace AdressBookAppWeb.Controllers
             return View();
         }
 
+        public IActionResult Contacts()
+        {
+            return View();
+        }
+
         public IActionResult ContactDetails()
         {
             return View();
