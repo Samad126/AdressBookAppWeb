@@ -22,40 +22,65 @@
                 <p>Do you want to view contacts related to this date?</p>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-primary" id="viewContactBtn">View Contact</a>
+                <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-primary" id="viewContactBtn">View Contact</a>
+                <button type="button" class="btn btn-success" id="sayHappyBirthdayBtn" style="display: none;">
+                    Say Happy Birthday
+                </button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/main.min.css"
-      rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        events: [
-          { title: "John's Birthday",     start: "2025-05-10" },
-          { title: "Anniversary Reminder", start: "2025-05-15" },
-          { title: "Follow-up with Client", start: "2025-05-20" }
-        ],
-        dateClick: function(info) {
-          document.getElementById("clickedDateDisplay").innerText = info.dateStr;
-          document.getElementById("viewContactBtn").href =
-            `/Contacts/ByDate?date=${info.dateStr}`;
-          new bootstrap.Modal(
-            document.getElementById("dayClickModal")
-          ).show();
-        }
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      events: [
+        { title: "John's Birthday",   start: "2025-05-10" },
+        { title: "Alice's Birthday",  start: "2025-05-15" },
+        { title: "David's Birthday",  start: "2025-05-20" }
+      ],
+     dateClick: function(info) {
+      var birthdays = calendar.getEvents().filter(function(ev) {
+        var d = ev.start;
+        var y = d.getFullYear();
+        var m = String(d.getMonth() + 1).padStart(2, '0');
+        var day = String(d.getDate()).padStart(2, '0');
+        var eventDateStr = y + '-' + m + '-' + day;
+        return (
+          eventDateStr === info.dateStr &&
+          ev.title.toLowerCase().includes('birthday')
+        );
       });
-      calendar.render();
+
+      if (birthdays.length === 0) return;
+
+      document.getElementById("clickedDateDisplay").innerText = info.dateStr;
+      document.getElementById("viewContactBtn").href = `/Contacts/ByDate?date=${info.dateStr}`;
+
+      // Show "Say Happy Birthday" only if date is today
+      const today = new Date().toISOString().split('T')[0];
+      const birthdayBtn = document.getElementById("sayHappyBirthdayBtn");
+        console.log(info.dateStr, today);
+      if (info.dateStr === today) {
+        birthdayBtn.style.display = 'inline-block';
+      } else {
+        birthdayBtn.style.display = 'none';
+      }
+
+      new bootstrap.Modal(document.getElementById("dayClickModal")).show();
+    }
+
     });
+
+    calendar.render();
+  });
 </script>
