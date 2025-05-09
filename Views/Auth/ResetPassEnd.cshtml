@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_AuthLayout";
+    ViewData["Title"] = "Reset Password";
+}
+
+<div class="container-fluid px-4 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title mb-3 text-center">Reset Your Password</h4>
+
+                    <!-- Optional: Show email or username if available -->
+                    <!-- <p class="text-muted text-center">Resetting for: user@example.com</p> -->
+
+                    <form method="post" asp-action="ResetPassword">
+                        <div class="mb-3">
+                            <label for="NewPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="NewPassword" name="NewPassword" required placeholder="Enter new password">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required placeholder="Re-enter new password">
+                        </div>
+
+                        <!-- Optional token hidden input -->
+                        @* <input type="hidden" name="Token" value="@Model.Token" /> *@
+
+                        <div class="d-grid gap-2">
+                            <a asp-controller="Auth" asp-action="Login" type="submit" class="btn btn-primary">Set New Password</a>
+                            <a asp-controller="Auth" asp-action="Login" class="btn btn-link text-center">Back to Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

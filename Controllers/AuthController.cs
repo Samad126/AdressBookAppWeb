@@ -23,5 +23,10 @@ namespace AdressBookAppWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult ResetPassEnd()
+        {
+            return View();
+        }
     }
 }
