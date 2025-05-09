@@ -8,14 +8,5 @@ namespace AdressBookAppWeb.Controllers
         {
             return View();
         }
-        public IActionResult BirthdayDetail()
-        {
-            return View();
-        }
-
-        public IActionResult AddRequestDetail()
-        {
-            return View();
-        }
     }
 }
