@@ -321,14 +321,13 @@
                 </select>
             </div>
 
-            <!-- Sort By -->
+            <!-- Birthday Range Filter -->
             <div class="mb-3">
-                <label for="sortOrder" class="form-label">Sort By</label>
-                <select class="form-select" id="sortOrder" name="sortOrder">
-                    <option value="">Select Order</option>
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
-                </select>
+                <label class="form-label">Birthday Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="birthdayFrom" name="birthdayFrom" placeholder="From">
+                    <input type="date" class="form-control" id="birthdayTo" name="birthdayTo" placeholder="To">
+                </div>
             </div>
 
             <!-- Additional Filters -->
@@ -351,7 +350,7 @@
             <!-- Search Button -->
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Search</button>
-                <button type="button" class="btn btn-secondary">Reset</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
             </div>
         </form>
     </div>
