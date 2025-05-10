@@ -9,11 +9,20 @@
         <!-- Profile Info -->
         <div class="col-lg-6">
             <div class="card">
-                <div class="card-header">
-                    <h5>Profile Information</h5>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Profile Information</h5>
                 </div>
                 <div class="card-body">
-                    <form id="profileForm">
+                    <form id="profileForm" enctype="multipart/form-data">
+                        <!-- Profile Image -->
+                        <div class="mb-3 text-center">
+                            <img src="https://picsum.photos/seed/picsum/200/300" alt="Profile Image" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                            <div>
+                                <label for="profileImage" class="form-label">Update Profile Image</label>
+                                <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*">
+                            </div>
+                        </div>
+
                         <div class="mb-3">
                             <p><strong>User Key:</strong> 1232112</p>
                         </div>
