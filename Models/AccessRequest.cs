@@ -1,6 +1,5 @@
 ﻿namespace AdressBookAppWeb.Models
 {
-    using AdressBookAppWeb.Models.Enums;
     using global::AdressBookAppWeb.Models.Enums;
     using System;
 
