@@ -3,7 +3,6 @@
 }
 
 <div class="container-fluid px-4 mt-4">
-    <!-- Groups Management Header -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Groups Management</h2>
         <div class="d-flex flex-wrap gap-2">
@@ -14,7 +13,6 @@
         </div>
     </div>
 
-    <!-- Groups List Table -->
     <div class="card shadow-sm">
         <div class="card-body">
             <table class="table table-bordered table-hover">
@@ -22,17 +20,16 @@
                     <tr>
                         <th><input type="checkbox" id="selectAllGroups"></th>
                         <th>Group Name</th>
-                        <th>Group Description</th> <!-- New Column -->
+                        <th>Group Description</th>
                         <th>Total Contacts</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="groupsTable">
-                    <!-- Example Group Rows -->
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Family</td>
-                        <td>Family members and relatives</td> <!-- Group Description -->
+                        <td>Family members and relatives</td>
                         <td>12</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -43,7 +40,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -54,7 +51,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -65,7 +62,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -76,7 +73,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -87,7 +84,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -98,7 +95,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -109,7 +106,7 @@
                     <tr>
                         <td><input type="checkbox" class="group-checkbox"></td>
                         <td>Work</td>
-                        <td>Colleagues and office contacts</td> <!-- Group Description -->
+                        <td>Colleagues and office contacts</td>
                         <td>23</td>
                         <td>
                             <a asp-controller="Contacts" asp-action="Index" class="btn btn-sm btn-info me-2">View Contacts</a>
@@ -120,7 +117,6 @@
                 </tbody>
             </table>
 
-            <!-- Bulk Action Buttons -->
             <div class="d-flex flex-wrap justify-content-between align-items-center mt-3">
                 <button class="btn btn-secondary me-2 mt-2" id="deleteSelected">Delete Selected</button>
             </div>

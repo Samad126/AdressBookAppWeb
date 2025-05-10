@@ -6,7 +6,6 @@
     <h2 class="mt-4">Shared Access</h2>
     <p>Check <a asp-controller="AccessRequest" asp-action="Index">Access Requests</a> page for handling(pending, accepted, rejected) requests which you have done using user key</p>
 
-    <!-- Bootstrap Tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="manage-access-tab"
@@ -26,10 +25,8 @@
         </li>
     </ul>
 
-    <!-- Tab Content -->
     <div class="tab-content mt-3" id="myTabContent">
 
-        <!-- Manage Access Tab -->
         <div class="tab-pane fade show active" id="manage-access" role="tabpanel"
              aria-labelledby="manage-access-tab">
             <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
@@ -40,7 +37,6 @@
             </div>
 
             <div class="row gy-3">
-                <!-- Viewer 1 -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card shadow-sm d-flex flex-row align-items-center p-2"
                          style="border-radius: 8px;">
@@ -66,7 +62,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Viewer 2 -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card shadow-sm d-flex flex-row align-items-center p-2"
                          style="border-radius: 8px;">
@@ -93,7 +88,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Viewer 3 -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card shadow-sm d-flex flex-row align-items-center p-2"
                          style="border-radius: 8px;">
@@ -121,7 +115,6 @@
                 </div>
             </div>
 
-            <!-- Pagination for Manage Access -->
             <div class="d-flex justify-content-center mt-4">
                 <nav aria-label="Manage Access Pagination">
                     <ul class="pagination pagination-sm mb-0">
@@ -141,7 +134,6 @@
             </div>
         </div>
 
-        <!-- View Shared Contacts Tab -->
         <div class="tab-pane fade" id="view-shared" role="tabpanel"
              aria-labelledby="view-shared-tab">
             <div class="d-flex mb-3 justify-content-between align-items-center flex-wrap">
@@ -151,7 +143,6 @@
                 </button>
             </div>
             <div class="row gy-3">
-                <!-- Owner 1 -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card shadow-sm d-flex flex-row align-items-center p-2"
                          style="border-radius: 8px;">
@@ -174,7 +165,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Owner 2 -->
                 <div class="col-sm-6 col-md-4">
                     <div class="card shadow-sm d-flex flex-row align-items-center p-2"
                          style="border-radius: 8px;">
@@ -199,7 +189,6 @@
                 </div>
             </div>
 
-            <!-- Pagination for View Shared Contacts -->
             <div class="d-flex justify-content-center mt-4">
                 <nav aria-label="View Shared Pagination">
                     <ul class="pagination pagination-sm mb-0">
@@ -235,7 +224,6 @@
                 <input type="text" id="manageAccessName" class="form-control" placeholder="Enter name or email...">
             </div>
 
-            <!-- New Access Status Filter -->
             <div class="mb-3">
                 <label for="accessStatusFilter" class="form-label">Access Status</label>
                 <select id="accessStatusFilter" class="form-select">

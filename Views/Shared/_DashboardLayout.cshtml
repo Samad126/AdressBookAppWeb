@@ -16,15 +16,11 @@
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" asp-controller="Dashboard" asp-action="Index">Address Book</a>
-        <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
             <i class="fas fa-bars"></i>
         </button>
-        <!-- Navbar-->
         <ul class="navbar-nav ms-auto">
-            <!-- Notification Icon -->
             <li class="nav-item dropdown mx-2 position-relative">
                 <a class="nav-link dropdown-toggle" id="notificationDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-bell"></i>
@@ -35,14 +31,12 @@
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="width: 300px;">
                     <li><h6 class="dropdown-header">Notifications</h6></li>
 
-                    <!-- Birthday: John -->
                     <li>
                         <a class="dropdown-item" href="#">
                             🎂 Today is John's birthday
                         </a>
                     </li>
 
-                    <!-- Birthday: Alice -->
                     <li>
                         <a class="dropdown-item" href="#">
                             🎂 Today is Alice's birthday
@@ -59,7 +53,6 @@
                 </ul>
             </li>
 
-            <!-- Profile Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user fa-fw"></i>
@@ -77,14 +70,12 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <!-- Dashboard -->
                         @* <div class="sb-sidenav-menu-heading">Core</div> *@
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")"
                            asp-controller="Dashboard" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <!-- Contact Management -->
                         @* <div class="sb-sidenav-menu-heading">Address Book</div> *@
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Contacts" ? "active" : "")"
                            asp-controller="Contacts" asp-action="Index">
@@ -97,21 +88,18 @@
                             Groups
                         </a>
 
-                        <!-- Tags -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Calendar" ? "active" : "")"
                            asp-controller="Calendar" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                             Calendar
                         </a>
 
-                        <!-- Shared Access -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "SharedAccess" ? "active" : "")"
                            asp-controller="SharedAccess" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Shared Access
                         </a>
 
-                        <!-- System Settings -->
                         <div class="sb-sidenav-menu-heading">Settings</div>
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Profile" ? "active" : "")"
                            asp-controller="Profile" asp-action="Index">

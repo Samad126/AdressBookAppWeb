@@ -14,15 +14,11 @@
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" asp-controller="Dashboard" asp-action="Index">Address Book</a>
-        <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
             <i class="fas fa-bars"></i>
         </button>
-        <!-- Navbar-->
         <ul class="navbar-nav ms-auto">
-            <!-- Profile Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user fa-fw"></i>
@@ -40,28 +36,24 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <!-- Dashboard -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")"
                            asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
 
-                        <!-- Users Management -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Users" ? "active" : "")"
                            asp-area="Admin" asp-controller="Users" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Users
                         </a>
 
-                        <!-- Contact Reports -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "ContactReports" ? "active" : "")"
                            asp-area="Admin" asp-controller="ContactReports" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
                             Contact Reports
                         </a>
 
-                        <!-- Logs -->
                         <a class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Logs" ? "active" : "")"
                            asp-area="Admin" asp-controller="Logs" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>

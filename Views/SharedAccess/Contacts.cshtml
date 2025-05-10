@@ -5,16 +5,13 @@
 <div class="container-fluid px-4">
     <h2 class="mt-4">Shared Contacts</h2>
 
-    <!-- Search Button -->
     <div class="d-flex justify-content-end mb-4">
         <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-controls="searchOffcanvas">
             Search & Filter
         </button>
     </div>
 
-    <!-- Contact Cards -->
     <div class="row g-3">
-        <!-- Example Contact Card -->
         <div class="col-sm-6 col-md-4">
             <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
                 <img src="https://picsum.photos/id/237/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
@@ -32,10 +29,8 @@
             </div>
         </div>
 
-        <!-- Repeat more cards dynamically here -->
     </div>
 
-    <!-- Pagination -->
     <div class="d-flex justify-content-center mt-4">
         <nav aria-label="Shared Contacts Pagination">
             <ul class="pagination">
@@ -53,7 +48,6 @@
     </div>
 </div>
 
-<!-- Shared Contacts Search Offcanvas -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search Shared Contacts</h5>
@@ -87,7 +81,6 @@
                 </select>
             </div>
 
-            <!-- Birthday Range -->
             <div class="mb-3">
                 <label class="form-label">Birthday Range</label>
                 <div class="d-flex gap-2">
@@ -96,7 +89,6 @@
                 </div>
             </div>
 
-            <!-- Search Buttons -->
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Search</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>

@@ -23,7 +23,6 @@
         </div>
 
         <div class="row g-3">
-            <!-- Repeatable Contact Card -->
             @for (int i = 1; i <= 9; i++)
             {
                 <div class="col-sm-6 col-md-4">
@@ -51,7 +50,6 @@
     </form>
 </div>
 
-<!-- Pagination -->
 <div class="d-flex justify-content-center mt-4">
     <nav aria-label="Contacts Pagination">
         <ul class="pagination">
@@ -74,7 +72,6 @@
     </nav>
 </div>
 
-<!-- Add Contact Modal -->
 <div class="modal fade" id="addContactModal" tabindex="-1" aria-labelledby="addContactModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -96,7 +93,6 @@
     </div>
 </div>
 
-<!-- Import Contacts Modal -->
 <div class="modal fade" id="importContactsModal" tabindex="-1" aria-labelledby="importContactsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,7 +115,6 @@
     </div>
 </div>
 
-<!-- Export Contacts Modal -->
 <div class="modal fade" id="exportContactsModal" tabindex="-1" aria-labelledby="exportContactsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -141,7 +136,6 @@
     </div>
 </div>
 
-<!-- Search Contacts Offcanvas -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="searchOffcanvas" aria-labelledby="searchOffcanvasLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="searchOffcanvasLabel">Search & Filter Contacts</h5>
@@ -164,7 +158,6 @@
                 <input type="tel" class="form-control mb-2" id="phoneQuery" name="phoneQuery" placeholder="Enter phone number...">
             </div>
 
-            <!-- Filter by Group -->
             <div class="mb-3">
                 <label for="groupFilter" class="form-label">Group</label>
                 <select class="form-select" id="groupFilter" name="group">
@@ -176,7 +169,6 @@
                 </select>
             </div>
 
-            <!-- Birthday Range Filter -->
             <div class="mb-3">
                 <label class="form-label">Birthday Range</label>
                 <div class="d-flex gap-2">
@@ -185,7 +177,6 @@
                 </div>
             </div>
 
-            <!-- Additional Filters -->
             <div class="mb-3">
                 <label class="form-label">Additional Filters</label>
                 <div class="form-check">
@@ -202,7 +193,6 @@
                 </div>
             </div>
 
-            <!-- Search Button -->
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Search</button>
                 <button type="reset" class="btn btn-secondary">Reset</button>

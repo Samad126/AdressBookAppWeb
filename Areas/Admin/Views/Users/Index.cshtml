@@ -9,7 +9,6 @@
         <li class="breadcrumb-item active">Users</li>
     </ol>
 
-    <!-- Buttons -->
     <div class="d-flex justify-content-between mb-3 flex-wrap gap-2">
         <div>
             <a asp-area="Admin" asp-controller="Users" asp-action="Add" class="btn btn-success">
@@ -23,7 +22,6 @@
         </div>
     </div>
 
-    <!-- Filter Offcanvas (same as before) -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
         <div class="offcanvas-header">
             <h5 id="filterOffcanvasLabel">Filter Users</h5>
@@ -55,7 +53,6 @@
         </div>
     </div>
 
-    <!-- Users Table -->
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-users me-1"></i>
@@ -74,7 +71,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Example static users -->
                     <tr>
                         <td>1</td>
                         <td>
@@ -110,11 +106,9 @@
                             </div>
                         </td>
                     </tr>
-                    <!-- Repeat dynamically later -->
                 </tbody>
             </table>
         </div>
-        <!-- Static Bootstrap Pagination -->
         <div class="d-flex justify-content-center mt-3">
             <nav aria-label="Users pagination">
                 <ul class="pagination">
