@@ -62,101 +62,101 @@ Enum ReportStatus {
 
 Table User {
   Id int [pk]
-  FirstName varchar
-  LastName varchar
-  Email varchar
-  Password varchar
-  Phone varchar
-  UserKey varchar
+  FirstName varchar [not null]
+  LastName varchar [not null]
+  Email varchar [not null]
+  Password varchar [not null]
+  Phone varchar [not null]
+  UserKey varchar [not null]
   ProfileImage varchar
-  Role UserRole
-  RegistrationDate datetime
+  Role UserRole [not null]
+  RegistrationDate datetime [not null]
   LastLoginDate datetime
 }
 
 Table Contact {
   Id int [pk]
-  UserId int
-  Name varchar
+  UserId int [not null]
+  Name varchar [not null]
   Position varchar
   Email varchar
   Phone varchar
   Address varchar
   Company varchar
   ContactImage varchar
-  IsStarred boolean
+  IsStarred boolean [not null]
   Tags varchar
   BirthDate datetime
-  CreatedDate datetime
-  UpdatedDate datetime
+  CreatedDate datetime [not null]
+  UpdatedDate datetime [not null]
 }
 
 Table Group {
   Id int [pk]
-  UserId int
-  GroupName varchar
+  UserId int [not null]
+  GroupName varchar [not null]
   GroupDescription varchar
-  CreatedDate datetime
-  UpdatedDate datetime
+  CreatedDate datetime [not null]
+  UpdatedDate datetime [not null]
 }
 
 Table ContactGroup {
   Id int [pk]
-  ContactId int
-  GroupId int
+  ContactId int [not null]
+  GroupId int [not null]
 }
 
 Table AccessRequest {
   Id int [pk]
-  RequesterId int
-  ReceiverId int
-  RequestType RequestType
-  Direction Direction
-  Status RequestStatus
-  RequestDate datetime
+  RequesterId int [not null]
+  ReceiverId int [not null]
+  RequestType RequestType [not null]
+  Direction Direction [not null]
+  Status RequestStatus [not null]
+  RequestDate datetime [not null]
   AcceptDate datetime
   RejectDate datetime
 }
 
 Table SharedAccess {
   Id int [pk]
-  OwnerId int
-  ViewerId int
-  AccessStatus AccessStatus
-  GrantedDate datetime
+  OwnerId int [not null]
+  ViewerId int [not null]
+  AccessStatus AccessStatus [not null]
+  GrantedDate datetime [not null]
   RevokedDate datetime
 }
 
 Table Notification {
   Id int [pk]
-  UserId int
+  UserId int [not null]
   ContactId int
-  Type NotificationType
-  Message varchar
-  IsRead boolean
-  CreatedDate datetime
+  Type NotificationType [not null]
+  Message varchar [not null]
+  IsRead boolean [not null]
+  CreatedDate datetime [not null]
   ReadDate datetime
 }
 
 Table Log {
   Id int [pk]
   UserId int
-  Module LogModule
-  Action LogAction
-  Message varchar
-  LogDate datetime
-  IPAddress varchar
+  Module LogModule [not null]
+  Action LogAction [not null]
+  Message varchar [not null]
+  LogDate datetime [not null]
+  IPAddress varchar [not null]
 }
 
 Table ContactReport {
   Id int [pk]
-  UserId int
-  SenderName varchar
-  Email varchar
-  Subject varchar
-  Message varchar
-  Status ReportStatus
-  ReportDate datetime
+  UserId int [not null]
+  SenderName varchar [not null]
+  Email varchar [not null]
+  Subject varchar [not null]
+  Message varchar [not null]
+  Status ReportStatus [not null]
+  ReportDate datetime [not null]
   ReviewDate datetime
 }
 
