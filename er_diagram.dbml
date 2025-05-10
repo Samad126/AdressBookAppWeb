@@ -123,7 +123,7 @@ Table SharedAccess {
   OwnerId int [not null]
   ViewerId int [not null]
   AccessStatus AccessStatus [not null]
-  GrantedDate datetime [not null]
+  GrantedDate datetime
   RevokedDate datetime
 }
 
@@ -155,6 +155,7 @@ Table ContactReport {
   Email varchar [not null]
   Subject varchar [not null]
   Message varchar [not null]
+  AdminResponse varchar
   Status ReportStatus [not null]
   ReportDate datetime [not null]
   ReviewDate datetime

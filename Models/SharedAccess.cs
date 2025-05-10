@@ -19,13 +19,12 @@
             [Required]
             public AccessStatus AccessStatus { get; set; }
 
-            [Required]
-            public DateTime GrantedDate { get; set; }
+            public DateTime? GrantedDate { get; set; }
 
             public DateTime? RevokedDate { get; set; }
 
-            public User Owner { get; set; }
-            public User Viewer { get; set; }
+            public User? Owner { get; set; }
+            public User? Viewer { get; set; }
         }
     }
 }

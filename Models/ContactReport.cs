@@ -25,6 +25,9 @@
             [Required]
             public string Message { get; set; }
 
+            // Admin response to the contact report
+            public string AdminResponse { get; set; }
+
             [Required]
             public ReportStatus Status { get; set; }
 
