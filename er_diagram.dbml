@@ -1,7 +1,3 @@
-// Use DBML to define your database structure
-// Docs: https://dbdiagram.io/docs
-
-// Enum definitions
 Enum UserRole {
   SuperAdmin
   Admin
@@ -89,7 +85,7 @@ Table Contact {
   Company varchar
   ContactImage varchar
   IsStarred boolean
-  Tags varchar // Comma-separated string of tags
+  Tags varchar
   BirthDate datetime
   CreatedDate datetime
   UpdatedDate datetime
@@ -164,8 +160,6 @@ Table ContactReport {
   ReviewDate datetime
 }
 
-// Relationships
-// User relationships
 Ref: "User"."Id" < "Contact"."UserId"
 Ref: "User"."Id" < "Group"."UserId"
 Ref: "User"."Id" < "AccessRequest"."RequesterId"
@@ -176,9 +170,7 @@ Ref: "User"."Id" < "Notification"."UserId"
 Ref: "User"."Id" < "Log"."UserId"
 Ref: "User"."Id" < "ContactReport"."UserId"
 
-// Contact relationships
 Ref: "Contact"."Id" < "ContactGroup"."ContactId"
 Ref: "Contact"."Id" < "Notification"."ContactId"
 
-// Group relationships
 Ref: "Group"."Id" < "ContactGroup"."GroupId"
