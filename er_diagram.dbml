@@ -88,7 +88,7 @@ Table Contact {
   Tags varchar
   BirthDate datetime
   CreatedDate datetime [not null]
-  UpdatedDate datetime [not null]
+  UpdatedDate datetime
 }
 
 Table Group {
@@ -97,7 +97,7 @@ Table Group {
   GroupName varchar [not null]
   GroupDescription varchar
   CreatedDate datetime [not null]
-  UpdatedDate datetime [not null]
+  UpdatedDate datetime
 }
 
 Table ContactGroup {

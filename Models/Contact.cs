@@ -33,8 +33,7 @@ namespace AdressBookAppWeb.Models
         [Required]
         public DateTime CreatedDate { get; set; }
 
-        [Required]
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
 
         public User User { get; set; }
         public ICollection<ContactGroup> ContactGroups { get; set; }
