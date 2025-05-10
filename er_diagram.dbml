@@ -1,0 +1,184 @@
+// Use DBML to define your database structure
+// Docs: https://dbdiagram.io/docs
+
+// Enum definitions
+Enum UserRole {
+  SuperAdmin
+  Admin
+  User
+}
+
+Enum RequestType {
+  AddToContacts
+  ViewContacts
+  GiveAccess
+}
+
+Enum Direction {
+  Incoming
+  Outgoing
+}
+
+Enum RequestStatus {
+  Pending
+  Accepted
+  Rejected
+}
+
+Enum AccessStatus {
+  Accessed
+  Revoked
+}
+
+Enum NotificationType {
+  Birthday
+  AccessRequest
+  SystemNotice
+}
+
+Enum LogModule {
+  System
+  Contacts
+  Groups
+  Calendar
+  SharedAccess
+  Profile
+  ContactUs
+  Auth
+}
+
+Enum LogAction {
+  Add
+  Edit
+  Delete
+  LoggedIn
+  LoggedOut
+  GiveAccess
+  RevokeAccess
+  View
+}
+
+Enum ReportStatus {
+  Pending
+  Reviewed
+  Resolved
+}
+
+Table User {
+  Id int [pk]
+  FirstName varchar
+  LastName varchar
+  Email varchar
+  Password varchar
+  Phone varchar
+  UserKey varchar
+  ProfileImage varchar
+  Role UserRole
+  RegistrationDate datetime
+  LastLoginDate datetime
+}
+
+Table Contact {
+  Id int [pk]
+  UserId int
+  Name varchar
+  Position varchar
+  Email varchar
+  Phone varchar
+  Address varchar
+  Company varchar
+  ContactImage varchar
+  IsStarred boolean
+  Tags varchar // Comma-separated string of tags
+  BirthDate datetime
+  CreatedDate datetime
+  UpdatedDate datetime
+}
+
+Table Group {
+  Id int [pk]
+  UserId int
+  GroupName varchar
+  GroupDescription varchar
+  CreatedDate datetime
+  UpdatedDate datetime
+}
+
+Table ContactGroup {
+  Id int [pk]
+  ContactId int
+  GroupId int
+}
+
+Table AccessRequest {
+  Id int [pk]
+  RequesterId int
+  ReceiverId int
+  RequestType RequestType
+  Direction Direction
+  Status RequestStatus
+  RequestDate datetime
+  AcceptDate datetime
+  RejectDate datetime
+}
+
+Table SharedAccess {
+  Id int [pk]
+  OwnerId int
+  ViewerId int
+  AccessStatus AccessStatus
+  GrantedDate datetime
+  RevokedDate datetime
+}
+
+Table Notification {
+  Id int [pk]
+  UserId int
+  ContactId int
+  Type NotificationType
+  Message varchar
+  IsRead boolean
+  CreatedDate datetime
+  ReadDate datetime
+}
+
+Table Log {
+  Id int [pk]
+  UserId int
+  Module LogModule
+  Action LogAction
+  Message varchar
+  LogDate datetime
+  IPAddress varchar
+}
+
+Table ContactReport {
+  Id int [pk]
+  UserId int
+  SenderName varchar
+  Email varchar
+  Subject varchar
+  Message varchar
+  Status ReportStatus
+  ReportDate datetime
+  ReviewDate datetime
+}
+
+// Relationships
+// User relationships
+Ref: "User"."Id" < "Contact"."UserId"
+Ref: "User"."Id" < "Group"."UserId"
+Ref: "User"."Id" < "AccessRequest"."RequesterId"
+Ref: "User"."Id" < "AccessRequest"."ReceiverId"
+Ref: "User"."Id" < "SharedAccess"."OwnerId"
+Ref: "User"."Id" < "SharedAccess"."ViewerId"
+Ref: "User"."Id" < "Notification"."UserId"
+Ref: "User"."Id" < "Log"."UserId"
+Ref: "User"."Id" < "ContactReport"."UserId"
+
+// Contact relationships
+Ref: "Contact"."Id" < "ContactGroup"."ContactId"
+Ref: "Contact"."Id" < "Notification"."ContactId"
+
+// Group relationships
+Ref: "Group"."Id" < "ContactGroup"."GroupId"
