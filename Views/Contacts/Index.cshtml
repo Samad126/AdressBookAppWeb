@@ -4,199 +4,53 @@
 
 <div class="container-fluid px-4">
     <h2 class="mt-4">Contacts</h2>
-    <p>Check <a asp-controller="AccessRequest" asp-action="Index">Access Requests</a> page for handling(pending, accepted, rejected) requests which you have done using user key</p>
+    <p>Check <a asp-controller="AccessRequest" asp-action="Index">Access Requests</a> page for handling (pending, accepted, rejected) requests which you have done using user key.</p>
 
-    <div class="row align-items-start justify-content-between mb-4">
-        <div class="col-lg-6 col-md-8 col-sm-12 mb-3 d-flex flex-wrap gap-2">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContactModal">Add New Contact</button>
-            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#importContactsModal">Import Contacts</button>
-            <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportContactsModal">Export Contacts</button>
-        </div>
+    <form method="post" id="bulkDeleteForm">
+        <div class="row align-items-start justify-content-between mb-4">
+            <div class="col-lg-6 col-md-8 col-sm-12 mb-3 d-flex flex-wrap gap-2">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addContactModal" type="button">Add New Contact</button>
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#importContactsModal" type="button">Import Contacts</button>
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportContactsModal" type="button">Export Contacts</button>
+                <button class="btn btn-danger" type="submit">Bulk Delete</button>
+            </div>
 
-        <div class="col-lg-3 col-md-4 col-sm-12 mb-3 text-end">
-            <button class="btn btn-primary w-100" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-controls="searchOffcanvas">
-                Search Contacts
-            </button>
-        </div>
-    </div>
-
-    <div class="row g-3">
-        <!-- Contact Card 1 -->
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/237/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">John Doe</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 123-456-7890</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: john@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 mb-3 text-end">
+                <button class="btn btn-primary w-100" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas" aria-controls="searchOffcanvas" type="button">
+                    Search Contacts
+                </button>
             </div>
         </div>
 
-        <!-- Contact Card 2 -->
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
+        <div class="row g-3">
+            <!-- Repeatable Contact Card -->
+            @for (int i = 1; i <= 9; i++)
+            {
+                <div class="col-sm-6 col-md-4">
+                    <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
+                        <input type="checkbox" class="form-check-input me-2" name="selectedContacts" value="@i" />
+                        <img src="https://picsum.photos/id/230/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
+                        <div class="ms-3 w-100">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h6 class="mb-0">Contact @i</h6>
+                                <button class="btn btn-outline-warning btn-sm">★ Star</button>
+                            </div>
+                            <p class="mb-0" style="font-size: 0.85rem;">Phone: 123-456-78@i</p>
+                            <p class="mb-1" style="font-size: 0.85rem;">Email: contact@demo.com</p>
 
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
+                            <div class="d-flex gap-1 mt-2 flex-wrap">
+                                <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
+                                <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="card shadow-sm d-flex flex-row align-items-center p-2" style="border-radius: 8px;">
-                <img src="https://picsum.photos/id/238/80/80" class="rounded" style="height: 80px; width: 80px; object-fit: cover;" alt="Contact Image">
-                <div class="ms-3 w-100">
-                    <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h6 class="mb-0">Jane Smith</h6>
-                        <button class="btn btn-outline-warning btn-sm">★ Star</button>
-                    </div>
-                    <p class="mb-0" style="font-size: 0.85rem;">Phone: 987-654-3210</p>
-                    <p class="mb-1" style="font-size: 0.85rem;">Email: jane@example.com</p>
-
-                    <div class="d-flex gap-1 mt-2 flex-wrap">
-                        <a asp-controller="Contacts" asp-action="ContactDetail" class="btn btn-info btn-sm">View</a>
-                        <a asp-controller="Contacts" asp-action="EditContact" class="btn btn-warning btn-sm">Update</a>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>
+
 <!-- Pagination -->
 <div class="d-flex justify-content-center mt-4">
     <nav aria-label="Contacts Pagination">
