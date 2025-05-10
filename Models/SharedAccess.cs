@@ -14,7 +14,6 @@
             public DateTime GrantedDate { get; set; }
             public DateTime? RevokedDate { get; set; }
 
-            // Navigation properties
             public User Owner { get; set; }
             public User Viewer { get; set; }
         }

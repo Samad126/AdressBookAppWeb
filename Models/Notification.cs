@@ -16,7 +16,6 @@
             public DateTime CreatedDate { get; set; }
             public DateTime? ReadDate { get; set; }
 
-            // Navigation properties
             public User User { get; set; }
             public Contact Contact { get; set; }
         }

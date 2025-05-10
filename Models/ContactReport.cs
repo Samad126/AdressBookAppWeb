@@ -17,7 +17,6 @@
             public DateTime ReportDate { get; set; }
             public DateTime? ReviewDate { get; set; }
 
-            // Navigation property
             public User User { get; set; }
         }
     }

@@ -1,5 +1,6 @@
 namespace AdressBookAppWeb.Models
 {
+    using global::AdressBookAppWeb.Models.AdressBookAppWeb.Models;
     using System;
     using System.Collections.Generic;
 
@@ -15,12 +16,11 @@ namespace AdressBookAppWeb.Models
         public string Company { get; set; }
         public string ContactImage { get; set; }
         public bool IsStarred { get; set; }
-        public string Tags { get; set; } // Comma-separated string of tags
+        public string Tags { get; set; }
         public DateTime? BirthDate { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
-        // Navigation properties
         public User User { get; set; }
         public ICollection<ContactGroup> ContactGroups { get; set; }
         public ICollection<Notification> Notifications { get; set; }

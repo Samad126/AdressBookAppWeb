@@ -15,7 +15,6 @@
             public DateTime LogDate { get; set; }
             public string IPAddress { get; set; }
 
-            // Navigation property
             public User User { get; set; }
         }
     }

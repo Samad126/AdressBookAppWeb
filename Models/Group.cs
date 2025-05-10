@@ -14,7 +14,6 @@
             public DateTime CreatedDate { get; set; }
             public DateTime UpdatedDate { get; set; }
 
-            // Navigation properties
             public User User { get; set; }
             public ICollection<ContactGroup> ContactGroups { get; set; }
         }

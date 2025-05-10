@@ -21,7 +21,6 @@
             public DateTime RegistrationDate { get; set; }
             public DateTime? LastLoginDate { get; set; }
 
-            // Navigation properties
             public ICollection<Contact> Contacts { get; set; }
             public ICollection<Group> Groups { get; set; }
             public ICollection<AccessRequest> SentRequests { get; set; }

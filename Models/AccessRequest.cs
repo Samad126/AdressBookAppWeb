@@ -17,7 +17,6 @@
             public DateTime? AcceptDate { get; set; }
             public DateTime? RejectDate { get; set; }
 
-            // Navigation properties
             public User Requester { get; set; }
             public User Receiver { get; set; }
         }
