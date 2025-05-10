@@ -8,5 +8,10 @@ namespace AdressBookAppWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Report(int id)
+        {
+            return View(id);
+        }
     }
 }

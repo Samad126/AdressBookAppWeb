@@ -1,62 +1,168 @@
 ﻿@{
-    ViewData["Title"] = "Profile";
+    ViewData["Title"] = "User Profile";
 }
 
-<!-- User Profile Card -->
-<div class="card m-4">
-    <div class="card-header">
-        <h2>User Profile</h2>
-    </div>
-    <div class="card-body">
-        <!-- View & Edit Profile Section -->
-        <form id="profileForm">
-            <div class="mb-3">
-                <p>User key: 1232112</p>
+<div class="container-fluid px-4 mt-4 pb-4">
+    <h2 class="mb-4">User Profile</h2>
+
+    <div class="row gy-4">
+        <!-- Profile Info -->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Profile Information</h5>
+                </div>
+                <div class="card-body">
+                    <form id="profileForm">
+                        <div class="mb-3">
+                            <p><strong>User Key:</strong> 1232112</p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="JohnDoe123" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="johndoe@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" value="John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" name="phone" value="+1234567890">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="JohnDoe123" readonly>
+        </div>
+
+        <!-- Password Change -->
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Change Password</h5>
+                </div>
+                <div class="card-body">
+                    <form id="passwordForm">
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" name="currentPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="johndoe@example.com">
+        </div>
+
+        <!-- Sent Reports Table -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Sent Reports</h5>
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterReportsOffcanvas">
+                        <i class="fas fa-filter me-1"></i> Filter
+                    </button>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024-05-05</td>
+                                    <td>Problem Logging In</td>
+                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                    <td><a href="/Profile/Report/1" class="btn btn-sm btn-info">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2024-04-28</td>
+                                    <td>Unable to Update Profile</td>
+                                    <td><span class="badge bg-primary text-white">Reviewed</span></td>
+                                    <td><a href="/Profile/Report/2" class="btn btn-sm btn-info">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2024-04-22</td>
+                                    <td>Incorrect Data Issue</td>
+                                    <td><span class="badge bg-success">Resolved</span></td>
+                                    <td><a href="/Profile/Report/3" class="btn btn-sm btn-info">View Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination Controls -->
+                    <div class="d-flex justify-content-center mt-3">
+                        <nav aria-label="Report Pagination">
+                            <ul class="pagination pagination-sm mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="fullName" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="fullName" name="fullName" value="John Doe">
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="+1234567890">
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<!-- Change Password Card -->
-<div class="card m-4">
-    <div class="card-header">
-        <h2>Change Password</h2>
+<!-- Offcanvas Filter -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterReportsOffcanvas" aria-labelledby="filterReportsOffcanvasLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="filterReportsOffcanvasLabel">Filter Reports</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="card-body">
-        <form id="passwordForm">
+    <div class="offcanvas-body">
+        <form>
             <div class="mb-3">
-                <label for="currentPassword" class="form-label">Current Password</label>
-                <input type="password" class="form-control" id="currentPassword" name="currentPassword">
+                <label for="reportStatusFilter" class="form-label">Status</label>
+                <select class="form-select" id="reportStatusFilter">
+                    <option selected>All</option>
+                    <option>Pending</option>
+                    <option>Reviewed</option>
+                    <option>Resolved</option>
+                </select>
             </div>
+
             <div class="mb-3">
-                <label for="newPassword" class="form-label">New Password</label>
-                <input type="password" class="form-control" id="newPassword" name="newPassword">
+                <label class="form-label">Date Range</label>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" id="fromDate">
+                    <input type="date" class="form-control" id="toDate">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
-            </div>
+
             <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Update Password</button>
+                <button type="submit" class="btn btn-primary">Apply Filter</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
             </div>
         </form>
     </div>
