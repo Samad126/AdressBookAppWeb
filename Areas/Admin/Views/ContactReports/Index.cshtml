@@ -35,6 +35,15 @@
                     <input type="text" class="form-control" id="subjectFilter" name="subject" placeholder="Enter subject">
                 </div>
                 <div class="mb-3">
+                    <label for="statusFilter" class="form-label">Status</label>
+                    <select class="form-select" id="statusFilter" name="status">
+                        <option value="">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Reviewed">Reviewed</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="dateFilter" class="form-label">Date</label>
                     <input type="date" class="form-control" id="dateFilter" name="date">
                 </div>
@@ -60,6 +69,7 @@
                         <th>Email</th>
                         <th>Subject</th>
                         <th>Message</th>
+                        <th>Status</th>
                         <th>Date</th>
                         <th style="width: 150px;">Actions</th>
                     </tr>
@@ -71,6 +81,7 @@
                         <td>michael@example.com</td>
                         <td>Problem Logging In</td>
                         <td>I'm unable to access my account. Please assist.</td>
+                        <td><span class="badge bg-warning text-dark">Pending</span></td>
                         <td>2024-05-05</td>
                         <td>
                             <div class="d-flex gap-1 flex-wrap">
@@ -85,6 +96,7 @@
                         <td>sarah@example.com</td>
                         <td>Suggestion for Feature</td>
                         <td>It would be great to have a dark mode!</td>
+                        <td><span class="badge bg-success">Reviewed</span></td>
                         <td>2024-05-04</td>
                         <td>
                             <div class="d-flex gap-1 flex-wrap">
