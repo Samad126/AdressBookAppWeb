@@ -28,5 +28,10 @@ namespace AdressBookAppWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Support()
+        {
+            return View();
+        }
     }
 }
